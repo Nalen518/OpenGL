@@ -52,6 +52,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>
+        $(ProjectDir)src;
         C:\libraries\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include;
         C:\libraries\glad\include;
         C:\libraries\glm\glm;
@@ -86,6 +87,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>
+        $(ProjectDir)src;
         C:\libraries\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include;
         C:\libraries\glad\include;
         C:\libraries\glm\glm;
@@ -110,21 +112,21 @@
 
   <!-- ── Source Files ──────────────────────────────────────── -->
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="mesh.cpp" />
-    <ClCompile Include="model.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\mesh.cpp" />
+    <ClCompile Include="src\model.cpp" />
     <!-- glad.c compiled as C (not C++) -->
-    <ClCompile Include="glad.c">
+    <ClCompile Include="src\glad.c">
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
   </ItemGroup>
 
   <!-- ── Header Files ──────────────────────────────────────── -->
   <ItemGroup>
-    <ClInclude Include="shader.h" />
-    <ClInclude Include="mesh.h" />
-    <ClInclude Include="model.h" />
+    <ClInclude Include="src\shader.h" />
+    <ClInclude Include="src\mesh.h" />
+    <ClInclude Include="src\model.h" />
   </ItemGroup>
 
   <!-- ── Shader Files (shown in Resource Files) ────────────── -->
