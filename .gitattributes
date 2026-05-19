@@ -9,3 +9,11 @@
 *.obj binary
 *.dll binary
 *.exe binary
+
+# ── GitHub Linguist overrides ──────────────────────────────
+# glad.c is a generated OpenGL loader — exclude from language stats
+src/glad.c linguist-vendored=true
+
+# Detect GLSL shaders properly
+*.vert linguist-language=GLSL
+*.frag linguist-language=GLSL
