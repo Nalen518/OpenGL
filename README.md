@@ -120,13 +120,7 @@ OpenGL/
 
 ---
 
-## 📄 Report
 
-See [`Implementation_Report.md`](./Implementation_Report.md) for the full academic report covering:
-- Vertex & Fragment Shader breakdown with annotated GLSL code
-- VAO/VBO/EBO pipeline explanation
-- MVP matrix math for all 3 configurations
-- Material parameter tables
 
 ---
 
