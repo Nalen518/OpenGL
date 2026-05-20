@@ -34,7 +34,7 @@ OpenGL/
 │   └── phong.frag            # Fragment shader (Phong + attenuation + rim + emission)
 ├── models/
 │   └── Water.obj             # 3D geometry model
-├── Implementation_Report.md  # Full academic implementation report
+├ 
 └── OpenGL.sln                # Visual Studio 2022 solution
 ```
 
