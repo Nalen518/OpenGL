@@ -1,10 +1,3 @@
-// ============================================================
-//  OpenGL Assignment – Phong Shading + OBJ Loader + MVP Configs
-//  Controls:  1/2/3 – switch MVP config
-//             F     – cycle shader mode
-//             W     – toggle wireframe
-//             ESC   – quit
-// ============================================================
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -17,15 +10,15 @@
 #include "shader.h"
 #include "model.h"
 
-// ── Window ───────────────────────────────────────────────────
+
 const unsigned int SCR_W = 1280, SCR_H = 720;
 
-// ── State ────────────────────────────────────────────────────
+
 int  gConfig = 1;
 int  gShaderMode = 0;
 bool gWireframe = false;
 
-// ── Callbacks ────────────────────────────────────────────────
+
 void framebuffer_size_callback(GLFWwindow*, int w, int h) {
     glViewport(0, 0, w, h);
 }
@@ -64,7 +57,7 @@ void key_callback(GLFWwindow* win, int key, int, int action, int) {
     }
 }
 
-// ── Material struct ──────────────────────────────────────────
+
 struct Material {
     glm::vec3 ambient;
     glm::vec3 diffuse;
@@ -81,9 +74,8 @@ void applyMaterial(Shader& s, const Material& m) {
     s.setVec3("material.emission", m.emission);
 }
 
-// ── Entry point ───────────────────────────────────────────────
 int main() {
-    // ---- GLFW init ----------------------------------------
+    
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
@@ -102,7 +94,7 @@ int main() {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetKeyCallback(window, key_callback);
 
-    // ---- GLAD init ----------------------------------------
+    
     if (!gladLoadGL((GLADloadfunc)glfwGetProcAddress)) {
         std::cerr << "GLAD init failed\n";
         return -1;
@@ -116,7 +108,7 @@ int main() {
     std::cout << "  [W]       = wireframe toggle\n";
     std::cout << "  [ESC]     = quit\n";
 
-    // ---- Shaders ------------------------------------------
+   
     Shader phong("shaders/phong.vert", "shaders/phong.frag");
 
     // ---- Model --------------------------------------------
@@ -125,7 +117,7 @@ int main() {
     Model ourModel(MODEL_PATH);
     std::cout << "[Model] Loaded successfully\n";
 
-    // ---- Materials (Item 2) --------------------------------
+    // Materials (Item 2) 
     // Gold — warm, very shiny, high specular
     Material matGold = {
         {0.25f, 0.20f, 0.07f},
@@ -151,7 +143,7 @@ int main() {
         {0.00f, 0.00f, 0.00f}
     };
 
-    // ---- Render loop --------------------------------------
+    // Render loop 
     while (!glfwWindowShouldClose(window)) {
         float time = (float)glfwGetTime();
 
@@ -160,10 +152,10 @@ int main() {
 
         phong.use();
 
-        // ---- Shader mode ----------------------------------
+        // Shader mode 
         phong.setInt("shaderMode", gShaderMode);
 
-        // ---- Animated orbiting light ----------------------
+        //  Animated orbiting light 
         glm::vec3 lightPos(
             8.f * sinf(time * 0.7f),
             5.f,
@@ -177,9 +169,9 @@ int main() {
         phong.setFloat("light.linear", 0.09f);
         phong.setFloat("light.quadratic", 0.032f);
 
-        // ================================================
+        
         //  Item 4 — 3 distinct MVP configurations
-        // ================================================
+        
         glm::mat4 projection(1.f), view(1.f);
         glm::vec3 camPos;
         float aspect = (float)SCR_W / SCR_H;
@@ -220,10 +212,10 @@ int main() {
         phong.setMat4("projection", projection);
         phong.setVec3("viewPos", camPos);
 
-        // ================================================
+        
         //  3 Objects — same model, different materials
         //  Arranged in clean horizontal line
-        // ================================================
+        
 
         // Object 1 — Gold (left), slowly rotating
         {
