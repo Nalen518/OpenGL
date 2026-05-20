@@ -117,7 +117,7 @@
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\model.cpp" />
     <!-- glad.c compiled as C (not C++) -->
-    <ClCompile Include="src\glad.c">
+    <ClCompile Include="vendor\glad.c">
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
   </ItemGroup>

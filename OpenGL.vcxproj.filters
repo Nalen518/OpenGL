@@ -29,7 +29,7 @@
     <ClCompile Include="src\model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glad.c">
+    <ClCompile Include="vendor\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
